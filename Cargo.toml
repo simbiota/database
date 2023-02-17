@@ -1,0 +1,26 @@
+[package]
+name = "simbiota-database"
+version = "0.0.1"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+num-integer = "0.1.45"
+flate2 = { version = "1.0.25", optional = true }
+clap = { version = "4.1.6", optional = true }
+chrono = { version = "0.4.23", optional = true }
+
+[features]
+default = ["compression"]
+compression = ["dep:flate2"]
+inspection = ["dep:clap", "dep:chrono"]
+
+
+[[bin]]
+name = "dbinspect"
+required-features = ["inspection"]
+
+[[bin]]
+name = "add_hashes_to_db"
+
