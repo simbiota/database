@@ -114,6 +114,12 @@ Database for our own TLSH hash variants and the corresponding sample SHA256
 Entry types:
   - 0x0: Binary TLSH digest and a SHA256 hash
 
+- 0x0003: TLSH database with per-sample distance:
+Extend the 0x0002 database type with an additional distance byte per sample. This
+is used for more fine-tuned malware detection.
+Entry types:
+  - 0x0: Binary TLSH digest, SHA256 hash and distance byte
+
 ### Compression:
 
 The following compression values are supported:
